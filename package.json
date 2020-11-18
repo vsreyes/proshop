@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsreyes/proshop.git"
+  },
+  "author": "Virgilio S. Reyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsreyes/proshop/issues"
+  },
+  "homepage": "https://github.com/vsreyes/proshop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
