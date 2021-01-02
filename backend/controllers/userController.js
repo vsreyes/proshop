@@ -105,10 +105,10 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get all users
-// @route   GET /api/users/profile
+// @route   GET /api/users
 // @access  Private/Admin
 const getUsers = asyncHandler(async (req, res) => {
-  const user = await User.findById({});
+  const users = await User.findById({});
   res.json(users);
 });
 
