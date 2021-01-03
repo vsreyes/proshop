@@ -16,9 +16,9 @@ const UserListScreen = () => {
     dispatch(listUsers());
   }, [dispatch]);
 
-  const deleteHandler = (id) => {
-      console.log('delete')
-  }
+  const deleteHandler = id => {
+    console.log('delete');
+  };
 
   return (
     <>
@@ -41,6 +41,7 @@ const UserListScreen = () => {
           <tbody>
             {users.map(user => (
               <tr key={user._id}>
+                <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>
                   <a href={`mailto:${user.email}`}>{user.email}</a>
@@ -53,7 +54,7 @@ const UserListScreen = () => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
                     </Button>
