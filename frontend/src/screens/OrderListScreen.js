@@ -9,8 +9,8 @@ import { listOrders } from '../actions/orderActions';
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
 
-  const OrderList = useSelector(state => state.OrderList);
-  const { loading, error, orders } = OrderList;
+  const orderList = useSelector(state => state.orderList);
+  const { loading, error, orders } = orderList;
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
@@ -65,7 +65,7 @@ const OrderListScreen = ({ history }) => {
                   )}
                 </td>
                 <td>
-                  <LinkContainer to={`/admin/order/${order._id}`}>
+                  <LinkContainer to={`/order/${order._id}`}>
                     <Button variant='light' className='btn-sm'>
                       Details
                     </Button>
