@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { PayPalButton } from 'react-paypal-button-v2';
 import { Link } from 'react-router-dom';
-import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -31,6 +31,9 @@ const OrderScreen = ({ match }) => {
 
   const orderDeliver = useSelector(state => state.orderDeliver);
   const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
+
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   if (!loading) {
     // Calculate prices
@@ -67,7 +70,7 @@ const OrderScreen = ({ match }) => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, orderId, successPay, order]);
+  }, [dispatch, orderId, successPay, successDeliver, order]);
 
   const successPaymentHandler = paymentResult => {
     console.log(paymentResult);
@@ -201,7 +204,7 @@ const OrderScreen = ({ match }) => {
                   )}
                 </ListGroup.Item>
               )}
-
+              {loadingDeliver && <Loader />}
               {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                 <ListGroup.Item>
                   <Button
